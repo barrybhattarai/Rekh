@@ -2,7 +2,7 @@
 #include <glad/glad.h>
 #include "MainWindow.h"
 #include "Vbo.h"
-const int WINDOW_SIDE = 600;
+#include "Vao.h"
 
 const char *V_SOURCE = R"(
 #version 420 core
@@ -50,7 +50,7 @@ float vertices[] = {
 
 int main() {
 
-    auto window = MainWindow(600, 600, "Bare");
+    auto window = MainWindow(600, 600, "Kiran");
     window.makeContextCurrent();
 
 //
@@ -70,9 +70,8 @@ int main() {
     glLinkProgram(shader);
     checkProgram(shader);
 
-    unsigned int vao;
-    glGenVertexArrays(1, &vao);
-    glBindVertexArray(vao);
+    auto vao = Vao();
+    vao.bind();
     auto vbo = Vbo();
     vbo.addData(sizeof(vertices), vertices);
     vbo.attribPointer(0, 3, GL_FLOAT, 6 * sizeof(float), 0);

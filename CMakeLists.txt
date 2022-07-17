@@ -10,6 +10,6 @@ add_subdirectory(glm)
 configure_file(config.h.in config.h)
 
 
-add_executable(Kiran main.cc glad.c MainWindow.cpp Vbo.cpp)
+add_executable(Kiran main.cc glad.c MainWindow.cpp Vbo.cpp Vao.cpp)
 target_link_libraries(Kiran glfw OpenGL glm::glm)
 target_include_directories(Kiran PUBLIC ${PROJECT_BINARY_DIR})
