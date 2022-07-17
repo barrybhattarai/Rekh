@@ -6,12 +6,12 @@
 #define BARE_MAINWINDOW_H
 
 #include <GLFW/glfw3.h>
-
+#include <functional>
 class MainWindow {
 public:
     MainWindow(int width, int height, const char *title);
 
-    void exec();
+    void exec(std::function<void()> loop);
 
     void terminate();
     ~MainWindow();

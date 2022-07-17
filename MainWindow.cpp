@@ -15,8 +15,10 @@ MainWindow::MainWindow(int width, int height, const char *title) : width(width),
     window = glfwCreateWindow(this->width, this->height, ss.str().c_str(), nullptr, nullptr);
 }
 
-void MainWindow::exec() {
+void MainWindow::exec(std::function<void()> loop) {
     while (!glfwWindowShouldClose(window)) {
+        loop();
+        glfwSwapBuffers(window);
         glfwPollEvents();
     }
 }
@@ -32,6 +34,8 @@ MainWindow::~MainWindow() {
 
 void MainWindow::makeContextCurrent() {
     glfwMakeContextCurrent(window);
+    gladLoadGLLoader(reinterpret_cast<GLADloadproc >(glfwGetProcAddress));
+
 }
 
 void MainWindow::initialize() {
@@ -39,7 +43,6 @@ void MainWindow::initialize() {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-    gladLoadGLLoader(reinterpret_cast<GLADloadproc >(glfwGetProcAddress));
 
 
 }
