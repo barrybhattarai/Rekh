@@ -6,6 +6,7 @@ find_package(glfw3 REQUIRED)
 find_package(OpenGL REQUIRED)
 
 include_directories(include)
+add_subdirectory(glm)
 
-add_executable(bare main.cc glad.c)
-target_link_libraries(bare glfw OpenGL)
+add_executable(bare main.cc glad.c MainWindow.cpp)
+target_link_libraries(bare glfw OpenGL glm::glm)
