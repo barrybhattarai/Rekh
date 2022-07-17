@@ -4,10 +4,15 @@
 
 #include "glad/glad.h"
 #include "MainWindow.h"
+#include <config.h>
+#include <string>
+#include <sstream>
 
 MainWindow::MainWindow(int width, int height, const char *title) : width(width), height(height), title(title) {
     initialize();
-    window = glfwCreateWindow(this->width, this->height, this->title, nullptr, nullptr);
+    std::stringstream ss;
+    ss << this->title << " v" << KIRAN_VERSION_MAJOR << '.' << KIRAN_VERSION_MINOR;
+    window = glfwCreateWindow(this->width, this->height, ss.str().c_str(), nullptr, nullptr);
 }
 
 void MainWindow::exec() {
