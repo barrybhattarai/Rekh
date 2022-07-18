@@ -14,12 +14,14 @@ public:
 
      void checkShader() const;
      [[nodiscard]] unsigned int getId() const;
+
+    void deleteShader() const;
+    ~Shader();
 private:
     GLenum type;
     unsigned  int id;
 
     void compile() const;
-
 
 
 };

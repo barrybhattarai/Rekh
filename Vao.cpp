@@ -17,3 +17,7 @@ void Vao::bind() const {
 void Vao::unbind() const {
     glBindVertexArray(0);
 }
+
+void Vao::enableLocation(unsigned int location) const {
+    glEnableVertexAttribArray(location);
+}

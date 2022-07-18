@@ -12,6 +12,7 @@ public:
     void bind() const;
 
     void unbind() const;
+    void enableLocation(unsigned int location)  const;
 private:
     unsigned int id{};
 };

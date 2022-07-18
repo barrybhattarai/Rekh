@@ -47,3 +47,11 @@ void Shader::checkShader() const {
 unsigned int Shader::getId() const {
     return id;
 }
+
+void Shader::deleteShader() const {
+    glDeleteShader(id);
+}
+
+Shader::~Shader() {
+    deleteShader();
+}
