@@ -1,4 +1,4 @@
-#include <iostream>
+
 #include <glad/glad.h>
 #include "MainWindow.h"
 #include "Vbo.h"
@@ -38,7 +38,6 @@ int main() {
     vao.enableLocation(0);
     vao.enableLocation(1);
     program.useProgram();
-
     window.exec([]() -> void {
         glClear(GL_COLOR_BUFFER_BIT);
         glDrawArrays(GL_TRIANGLES, 0, 3);

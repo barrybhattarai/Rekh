@@ -7,15 +7,29 @@
 #include <config.h>
 #include <string>
 #include <sstream>
+#include <iostream>
+
+void keyPressCallback(GLFWwindow *_window, int key, int, int action, int) {
+    if (key == GLFW_KEY_F && action == GLFW_PRESS) {
+        glfwSetWindowShouldClose(_window, true);
+    }
+}
+
+void framebufferSizeCallback(GLFWwindow *, int width, int height) {
+    glViewport(0, 0, width, height);
+}
+
 
 MainWindow::MainWindow(int width, int height, const char *title) : width(width), height(height), title(title) {
     initialize();
     std::stringstream ss;
     ss << this->title << " v" << KIRAN_VERSION_MAJOR << '.' << KIRAN_VERSION_MINOR;
     window = glfwCreateWindow(this->width, this->height, ss.str().c_str(), nullptr, nullptr);
+    glfwSetKeyCallback(window, keyPressCallback);
+    glfwSetFramebufferSizeCallback(window, framebufferSizeCallback);
 }
 
-void MainWindow::exec(std::function<void()> loop) {
+void MainWindow::exec(const std::function<void()> &loop) {
     while (!glfwWindowShouldClose(window)) {
         loop();
         glfwSwapBuffers(window);
@@ -46,3 +60,9 @@ void MainWindow::initialize() {
 
 
 }
+
+
+
+
+
+
