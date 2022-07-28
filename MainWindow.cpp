@@ -23,7 +23,7 @@ void framebufferSizeCallback(GLFWwindow *, int width, int height) {
 MainWindow::MainWindow(int width, int height, const char *title) : width(width), height(height), title(title) {
     initialize();
     std::stringstream ss;
-    ss << this->title << " v" << KIRAN_VERSION_MAJOR << '.' << KIRAN_VERSION_MINOR;
+    ss << this->title << " v" << REKH_VERSION_MAJOR << '.' << REKH_VERSION_MINOR;
     window = glfwCreateWindow(this->width, this->height, ss.str().c_str(), nullptr, nullptr);
     glfwSetKeyCallback(window, keyPressCallback);
     glfwSetFramebufferSizeCallback(window, framebufferSizeCallback);

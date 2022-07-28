@@ -22,8 +22,8 @@ int main() {
     auto window = MainWindow(600, 600, "Kiran");
     window.makeContextCurrent();
 
-    auto vertexShader = Shader(GL_VERTEX_SHADER, "/home/barry/CodeParty/bare/shaders/vert_shader.glsl");
-    auto fragShader = Shader(GL_FRAGMENT_SHADER, "/home/barry/CodeParty/bare/shaders/frag_shader.glsl");
+    auto vertexShader = Shader(GL_VERTEX_SHADER, "/home/barry/CodeParty/Rekh/shaders/vert_shader.glsl");
+    auto fragShader = Shader(GL_FRAGMENT_SHADER, "/home/barry/CodeParty/Rekh/shaders/frag_shader.glsl");
 
 
     auto program = Program();

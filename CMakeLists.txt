@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(Kiran VERSION 0.2)
+project(Rekh VERSION 0.2)
 
 set(CMAKE_CXX_STANDARD 17)
 find_package(glfw3 REQUIRED)
@@ -10,6 +10,6 @@ add_subdirectory(glm)
 configure_file(config.h.in config.h)
 
 
-add_executable(Kiran main.cc glad.c MainWindow.cpp Vbo.cpp Vao.cpp Shader.cpp program.cpp program.h)
-target_link_libraries(Kiran glfw OpenGL glm::glm)
-target_include_directories(Kiran PUBLIC ${PROJECT_BINARY_DIR})
+add_executable(Rekh main.cc glad.c MainWindow.cpp Vbo.cpp Vao.cpp Shader.cpp program.cpp program.h)
+target_link_libraries(Rekh glfw OpenGL glm::glm)
+target_include_directories(Rekh PUBLIC ${PROJECT_BINARY_DIR})
